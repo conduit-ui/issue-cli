@@ -1,5 +1,5 @@
 {
-    "name": "synapse-sentinel/issue",
+    "name": "conduit-ui/issue-cli",
     "description": "Issue CLI for the Synapse Sentinel ecosystem",
     "keywords": ["cli", "github", "issues", "synapse-sentinel"],
     "type": "project",
