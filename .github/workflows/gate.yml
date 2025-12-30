@@ -1,0 +1,28 @@
+name: Gate
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+  checks: write
+  pull-requests: write
+
+jobs:
+  certify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Synapse Sentinel Gate
+        uses: synapse-sentinel/gate@main
+        with:
+          check: certify
+          coverage-threshold: 80
+          auto-merge: ${{ github.event_name == 'pull_request' && 'true' || 'false' }}
+          merge-method: squash
+          coverage-comment: true
+          compact: false
